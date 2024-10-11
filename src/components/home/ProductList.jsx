@@ -19,7 +19,7 @@ const ProductList = () => {
         </h1>
       </div>
       <div className="w-full h-[90vh] overflow-y-auto overflow-x-hidden flex flex-wrap gap-10 px-10 py-10">
-        {products && products.map((product) => <Product product={product} />)}
+        {products && products.map((product) => <Product key={product.id} product={product} />)}
       </div>
     </div>
   );
