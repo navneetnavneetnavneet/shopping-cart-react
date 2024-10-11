@@ -6,8 +6,14 @@ import { ProductContext } from "../../context/productContext";
 const ProductDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { productDetails, setProductDetails, loading, setLoading } =
-    useContext(ProductContext);
+  const {
+    productDetails,
+    setProductDetails,
+    loading,
+    setLoading,
+    handleAddToCartProduct,
+    cartItems,
+  } = useContext(ProductContext);
 
   const getProductByProductId = async () => {
     try {
@@ -34,6 +40,7 @@ const ProductDetails = () => {
       </h1>
     );
   }
+
   return productDetails ? (
     <div className="w-full h-screen flex flex-col items-center justify-center">
       <h3
@@ -129,7 +136,15 @@ const ProductDetails = () => {
               Warrnnty Info : {productDetails?.warrantyInformation}
             </h3>
           </div>
-          <button className="px-4 py-2 w-fit mt-3 bg-black text-white text-base font-semibold">
+          <button
+            disabled={
+              cartItems.findIndex(
+                (product) => product.id === productDetails.id
+              ) > -1
+            }
+            onClick={() => handleAddToCartProduct(productDetails)}
+            className="disabled:opacity-50 px-4 py-2 w-fit bg-black text-white"
+          >
             Add To Cart
           </button>
         </div>

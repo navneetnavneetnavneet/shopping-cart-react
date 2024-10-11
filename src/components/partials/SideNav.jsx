@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SideNav = () => {
   return (
     <div className="w-[20%] h-screen border-r border-zinc-400">
       <div className="w-full flex items-center justify-between h-[10vh] px-4 border-b border-zinc-400">
         <h1 className="text-4xl font-black">ShopApp</h1>
-        <div className="w-10 h-10 bg-zinc-300 cursor-pointer rounded-full flex items-center justify-center">
+        <Link to="/cart" className="w-10 h-10 bg-zinc-300 cursor-pointer rounded-full flex items-center justify-center">
           <i className="ri-shopping-cart-2-line text-[1.2rem]"></i>
-        </div>
+        </Link>
       </div>
       <div className="w-full py-4 px-4">
         <h1 className="text-2xl mb-4 font-semibold border-b pb-1 border-zinc-400">
